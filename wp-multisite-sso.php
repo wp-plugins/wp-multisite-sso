@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: WP Multisite SSO
-  Version: 1.0.1
+  Version: 1.0.2
   Plugin URI: http://voceconnect.com/
   Description: Single sign on for a multisite network. Users are authenticated across all sites within the network.
   Author: Voce Platforms, Sean McCafferty
@@ -106,7 +106,7 @@ class WP_MultiSite_SSO {
 		$time      = time();
 		$user_hash = md5( sprintf( self::$user_hash_md5_format, $user->ID ) );
 
-		$network_sites = array_diff( WP_MultiSite_SSO::get_network_sites(), array( home_url() ) );
+		$network_sites = array_diff( WP_MultiSite_SSO::get_network_sites(), array( esc_url( home_url() ) ) );
 
 		$current_blog_id = get_current_blog_id();
 
